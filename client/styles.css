@@ -1034,16 +1034,17 @@ textarea.form-control {
     font-size: 1.25rem;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
   .about-buttons {
     flex-direction: column;
   }
 
   .section-title {
     font-size: 2rem;
+  }
+}
+@media (max-width: 320px) {
+    .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
   }
 }
