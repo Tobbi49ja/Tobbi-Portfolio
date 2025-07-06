@@ -27,4 +27,5 @@ npm start
 or 
 nodemon
 The app will start running at:
-http://localhost:3001 (or the port shown in your terminal)
+http://localhost:5000 
+(or the port shown in your terminal)
