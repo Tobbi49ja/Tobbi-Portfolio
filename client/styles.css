@@ -590,7 +590,204 @@ transform: translateY(-10px);
   grid-template-columns: 1fr;
   gap: 30px;
 }
+/* Project Preview Section */
+.project-preview {
+  background-color: var(--bg-light);
+}
 
+.project-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.project-preview-img-container {
+  flex: 1;
+  min-width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.project-preview-img {
+  width: 100%;
+  height: auto;
+  transition: var(--transition);
+  opacity: 0;
+}
+
+.project-preview-img.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards,
+    zoomInOut var(--zoom-duration) ease-in-out;
+}
+
+.project-preview-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.project-preview-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  opacity: 0;
+}
+
+.project-preview-title.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards;
+}
+
+.project-preview-description {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.project-preview-description.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards 0.2s;
+}
+
+.project-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.project-preview-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  opacity: 0;
+}
+
+.project-preview-subtitle.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards 0.3s;
+}
+
+.project-preview-writeup {
+  color: var(--light-text);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0;
+}
+
+.project-preview-writeup.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards 0.4s;
+}
+
+.project-preview-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.project-preview-buttons .btn {
+  opacity: 0;
+}
+
+.project-preview-buttons .btn.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards 0.5s;
+}
+.tag {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+}
+
+.tag.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards 0.3s;
+}
+
+.tag-blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.tag-purple {
+  background-color: #e9d5ff;
+  color: #5b21b6;
+}
+
+.tag-green {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.tag-yellow {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.tag-red {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.tag-indigo {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.tag-orange {
+  background-color: #ffedd5;
+  color: #f97316;
+}
+
+.tag-teal {
+  background-color: #ccfbf1;
+  color: #0f766e;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: var(--transition);
+  opacity: 0;
+}
+
+.back-link.visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards;
+}
+
+.back-link:hover {
+  color: var(--primary-hover);
+}
+
+.back-link i {
+  margin-right: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .project-preview-container {
+    flex-direction: column;
+  }
+
+  .project-preview-img-container {
+    min-width: 100%;
+  }
+
+  .project-preview-content {
+    min-width: 100%;
+  }
+
+  .project-preview-title {
+    font-size: 1.75rem;
+  }
+
+  .project-preview-subtitle {
+    font-size: 1.25rem;
+  }
+}
 @media (min-width: 768px) {
   .projects-container {
     grid-template-columns: repeat(2, 1fr);
@@ -708,13 +905,21 @@ transform: translateY(-10px);
   color: #3730a3;
 }
 
-.project-link {
+.project-link{
   color: var(--primary-color);
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   transition: var(--transition);
   opacity: 0;
+}
+.float{
+  padding: 0 12px 0 12px;
+  float: right;
+  transition: .5s;
+}
+.float:hover{
+    border: 1px solid red;
 }
 
 /* Fade-in for project links */

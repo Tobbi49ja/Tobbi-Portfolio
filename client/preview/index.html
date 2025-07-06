@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Preview - Tobbi</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container container">
+        <a href="/" class="logo">Tobbi</a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        <div class="nav-links">
+          <a href="#" class="nav-link active">Projects</a>
+        </div>
+      </div>
+      <div class="mobile-menu">
+        <div class="mobile-nav-links container">
+          <a href="/" class="mobile-nav-link">Home</a>
+          <a href="#" class="mobile-nav-link active">Projects</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Project Preview Section -->
+    <section id="project-preview" class="section project-preview">
+      <div class="container">
+        <a href="/projects" class="back-link"
+          ><i class="fas fa-arrow-left"></i> Back to Projects</a
+        >
+        <div class="project-preview-container">
+          <div class="project-preview-img-container">
+            <img src=""alt=""class="project-preview-img"id="project-image"/>
+            <p class="project-preview-description" id="project-writeup"></p>
+          </div>
+          <div class="project-preview-content">
+            <h2 class="project-preview-title" id="project-title"></h2>
+            <p class="project-preview-description" id="project-description"></p>
+            <div class="project-preview-tags" id="project-tags"></div>
+            <h3 class="project-preview-subtitle">Project Overview</h3>
+            <p class="project-preview-writeup" id="project-writeup2"></p>
+            <div class="project-preview-buttons">
+              <a href="#" target="_blank" class="btn btn-primary" id="live-demo"
+                >View Live Demo <i class="fas fa-arrow-right"></i
+              ></a>
+              <a href="#" target="_blank" class="btn btn-secondary" id="repo-link"
+                >View Repository <i class="fas fa-code"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <a href="/" class="footer-logo">Tobbi</a>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/about" class="footer-link">About</a>
+          <a href="/projects" class="footer-link active">Projects</a>
+          <a href="/contact" class="footer-link">Contact</a>
+        </div>
+        <p class="footer-copyright">© 2025 Tobbi. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <a href="#project-preview" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="/projects-data.js"></script>

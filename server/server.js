@@ -31,15 +31,19 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/projects', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'projects', 'projects.html'));
+  res.sendFile(path.join(__dirname, '../client', 'projects', 'index.html'));
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'contact', 'contact.html'));
+  res.sendFile(path.join(__dirname, '../client', 'contact', 'index.html'));
 });
 
 app.get('/cv', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'cv', 'cv.html'));
+  res.sendFile(path.join(__dirname, '../client', 'cv', 'index.html'));
+});
+app.get('/preview-index.html', (req, res) => {
+  const filePath = path.join(__dirname, '../client', 'preview', 'index.html');
+  res.sendFile(filePath);
 });
 
 // Handle 404
