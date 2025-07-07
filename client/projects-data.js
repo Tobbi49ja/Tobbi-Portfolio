@@ -6,9 +6,9 @@ const projects = [
     shortDescription: "Showcasing creative, high-impact projects highlighting skills, innovation, problem-solving, and professional growth.",
     writeup: "My Portfolio is a comprehensive showcase of my skills and projects, designed to highlight my expertise in web development. Built with HTML5, CSS, JavaScript, and Express.js, this project emphasizes clean design, smooth animations, and responsive layouts. The development process involved integrating modern web technologies, optimizing for performance, and ensuring accessibility. Challenges included implementing a dynamic navigation system and maintaining consistency across devices. The result is a professional portfolio that effectively communicates my capabilities and growth as a developer.",
     image: "/assets/pic/prj-pics/tobbi-port.png",
-    tags: ["HTML5", "CSS", "JavaScript", "Express.js"],
+    tags: ["HTML5", "CSS", "JavaScript", "node.js with Express"],
     repoUrl: "https://github.com/Tobbi49ja/Tobbi-Portfolio.git",
-    liveDemoUrl: ""
+    liveDemoUrl: "https://tobbi-portfolio.onrender.com/"
   },
   {
     id: "fan-page",
@@ -19,7 +19,7 @@ const projects = [
     image: "/assets/pic/prj-pics/fan-page.PNG",
     tags: ["HTML5", "CSS", "JavaScript"],
     repoUrl: "https://github.com/Tobbi49ja/Fan-Page.git",
-    liveDemoUrl: "https://tobbi-portfolio.onrender.com/"
+    liveDemoUrl: "https://fan-page.onrender.com"
   },
   {
     id: "cfl-app",

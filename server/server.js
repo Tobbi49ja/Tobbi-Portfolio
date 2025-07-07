@@ -6,9 +6,9 @@ const apiRoutes = require('./routes/api');
 
 dotenv.config();
 
-// Debug environment variables
-console.log('EMAIL_USER:', process.env.EMAIL_USER.urlencoded);
-console.log('EMAIL_PASS:', process.env.EMAIL_PASS.urlencoded);
+// // Debug environment variables
+// console.log('EMAIL_USER:', process.env.EMAIL_USER.urlencoded);
+// console.log('EMAIL_PASS:', process.env.EMAIL_PASS.urlencoded);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
