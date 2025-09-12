@@ -11,15 +11,15 @@ const projects = [
     liveDemoUrl: "https://tobbi-portfolio.onrender.com/"
   },
   {
-    id: "fan-page",
-    title: "A Fan-Page",
-    shortDescription: "Created a fan page to commemorate and pay tribute to my favorite artist, Juice WRLDI created a fan page to honor and pay tribute to my beloved favorite artist, Juice WRLD, celebrating his enduring legacy.",
-    writeup: "The Fan-Page project is a visually captivating website meticulously crafted to honor and commemorate my favorite music artist, Juice WRLD, whose real name was Jarad Anthony Higgins. This digital tribute serves as a heartfelt memorial to celebrate his profound impact on music and his fans worldwide. The website was primarily developed using HTML for structure, CSS for aesthetic design, and a touch of JavaScript to incorporate dynamic functionality and enhance the animation style, creating an engaging and immersive user experience.",
-    writeup2: "This project holds deep personal significance, inspired by my admiration for Juice WRLD’s authentic and emotive artistry. My friend’s Billie Eilish fan page ignited the concept and motivated me to delve into innovative web design, merging technical expertise with meaningful storytelling. The website acts as a communal hub for fans to celebrate his legacy. Future enhancements include a fan-submitted content portal to further enrich the user experience.",
-    image: "/assets/pic/prj-pics/fan-page.PNG",
-    tags: ["HTML5", "CSS", "JavaScript"],
-    repoUrl: "https://github.com/Tobbi49ja/Fan-Page.git",
-    liveDemoUrl: "https://fan-page.onrender.com"
+    id: "Student-Portal",
+    title: "A Student Management System",
+    shortDescription: "My school project to assess my skills and experience in both front-end and back-end development, building a comprehensive student management system.",
+    writeup: "The Student Management System is a streamlined web application designed to efficiently manage student profiles, courses, and administrative tasks. Developed with HTML for structure, CSS for responsive design, and JavaScript for dynamic functionality, it ensures a seamless user experience. Integrated with Node.js, Express, and MongoDB, it offers secure, intuitive navigation for students and admins, optimized for both desktop and mobile.",
+    writeup2: "This project is a significant milestone, reflecting my passion for creating impactful, user-focused web solutions. Inspired by the need for efficient student data management, it blends technical precision with practical utility. The no-framework approach ensures lightweight performance, while future plans include enhancing profile picture uploads and expanding admin features, fostering a scalable platform for academic institutions.",
+    image: "/assets/pic/prj-pics/studentPort.png",
+    tags: ["HTML5 & CCS3", "Express with Node.js", "MongoDB"],
+    repoUrl: "https://github.com/Tobbi49ja/Student-Portal.git",
+    liveDemoUrl: "https://student-management-system-hqbn.onrender.com/"
   },
   {
     id: "cfl-app",
@@ -100,7 +100,18 @@ const projects = [
     tags: ["HTML5", "CSS", "JavaScript"],
     repoUrl: "https://github.com/Tobbi49ja/class-project.git",
     liveDemoUrl: ""
-  }
+  },
+    {
+    id: "fan-page",
+    title: "A Fan-Page",
+    shortDescription: "Created a fan page to commemorate and pay tribute to my favorite artist, Juice WRLDI created a fan page to honor and pay tribute to my beloved favorite artist, Juice WRLD, celebrating his enduring legacy.",
+    writeup: "The Fan-Page project is a visually captivating website meticulously crafted to honor and commemorate my favorite music artist, Juice WRLD, whose real name was Jarad Anthony Higgins. This digital tribute serves as a heartfelt memorial to celebrate his profound impact on music and his fans worldwide. The website was primarily developed using HTML for structure, CSS for aesthetic design, and a touch of JavaScript to incorporate dynamic functionality and enhance the animation style, creating an engaging and immersive user experience.",
+    writeup2: "This project holds deep personal significance, inspired by my admiration for Juice WRLD’s authentic and emotive artistry. My friend’s Billie Eilish fan page ignited the concept and motivated me to delve into innovative web design, merging technical expertise with meaningful storytelling. The website acts as a communal hub for fans to celebrate his legacy. Future enhancements include a fan-submitted content portal to further enrich the user experience.",
+    image: "/assets/pic/prj-pics/fan-page.PNG",
+    tags: ["HTML5", "CSS", "JavaScript"],
+    repoUrl: "https://github.com/Tobbi49ja/Fan-Page.git",
+    liveDemoUrl: "https://fan-page.onrender.com"
+  },
 ];
       // Parse query parameter
       const params = new URLSearchParams(window.location.search);

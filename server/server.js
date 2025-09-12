@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('./email-routes/api');
 
 dotenv.config();
 
@@ -11,12 +11,12 @@ dotenv.config();
 // console.log('EMAIL_PASS:', process.env.EMAIL_PASS.urlencoded);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../client'))); 
 
 // API Routes
 app.use('/api', apiRoutes);
