@@ -58,8 +58,8 @@ const projects = [
     writeup: "The Functional Movie Hub is an ambitious project aimed at providing a seamless movie streaming experience. Built with React Native, Vite, Express, and Node.js, the platform integrates modern frontend and backend technologies to deliver a responsive and dynamic user interface. The development process involved setting up a robust server with Express, optimizing performance with Vite, and ensuring a smooth user experience with React Native. Challenges included managing API integrations for movie data and ensuring scalability. The project is actively being enhanced with new features and performance improvements.",
     image: "/assets/pic/prj-pics/movie.png",
     tags: ["React Native & Vite", "Express", "Node.js"],
-    repoUrl: "https://github.com/Tobbi49ja/Tobbihub-Movie.git",
-    liveDemoUrl: ""
+    repoUrl: "https://github.com/Tobbi49ja/movieReact.git",
+    liveDemoUrl: "https://moviereact-zzye.onrender.com/"
   },
   {
     id: "logistic-webpage",
