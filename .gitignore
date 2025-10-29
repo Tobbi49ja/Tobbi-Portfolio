@@ -1,3 +1,20 @@
-client/Tolulope_Okediji_Resume_New (1).docx
-server/.env
+# Node dependencies
+node_modules/
 server/node_modules/
+client/node_modules/
+
+# Environment files
+.env
+server/.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build or cache files
+dist/
+build/
+.vercel/
+.render/
+
+client/Tolulope_Okediji_Resume_New (1).docx
