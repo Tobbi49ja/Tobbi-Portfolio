@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
     <title>Tobbi - About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="icon" type="image/png" href="assets/favicon/Favicon.ico" />
   </head>
   <body>
+    <canvas id="robot-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container container">
@@ -34,66 +37,20 @@
         </div>
       </div>
     </nav>
-    <div class="mobile-menu">
-      <div class="mobile-nav-links container">
-        <a href="http://localhost:3001" class="mobile-nav-link">Home</a>
-        <a href="about.html" class="mobile-nav-link">About</a>
-        <a href="projects.html" class="mobile-nav-link">Projects</a>
-        <a href="contact.html" class="mobile-nav-link">Contact</a>
-      </div>
-    </div>
-
     <section id="home" class="section about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <div class="about-container">
           <div class="about-img-container">
-            <img
-              src="/assets/pic/profile/Profile.jpg"
-              alt="Tobbi"
-              class="about-img"
-            />
+            <img src="/assets/pic/profile/Profile.jpg" alt="Tobbi" class="about-img" id="profile-image" />
           </div>
           <div class="about-content">
             <h3 class="about-title">Who am I?</h3>
-            <p class="about-text">
-              I'm a passionate Full-Stack Developer and creative Designer with 8
-              months of hands-on experience crafting responsive, visually
-              engaging, and user-focused digital products. I specialize in
-              frontend and backend development using modern technologies like
-              HTML5, CSS3, JavaScript, React, Vite, Node.js, and Express, while
-              also excelling in UI/UX and graphic design with tools like Figma,
-              Canva, and Corel Draw.
-            </p>
-            <p class="about-text">
-              My development approach is rooted in clean, efficient code and
-              thoughtful design. I believe great software isn’t just
-              functional—it should feel intuitive and be a pleasure to use.
-              Whether I’m building a full-stack web app or designing a
-              pixel-perfect interface, I aim to create seamless user
-              experiences.
-            </p>
-            <p class="about-text">
-              Currently open to remote or on-site roles, I bring a strong
-              foundation in software engineering, a collaborative mindset, and a
-              passion for solving problems in innovative ways. I’ve contributed
-              to freelance and open-source projects, led creative processes, and
-              thrived in fast-paced, resource-constrained environments.
-            </p>
-            <p class="about-text">
-              Beyond the screen, I unwind and recharge through my love for
-              gaming, watching movies, and hanging out with friends. Whether I’m
-              exploring new digital worlds, catching the latest films, or
-              enjoying a fun outing, I believe in balancing hard work with
-              genuine enjoyment and creativity.
-            </p>
+            <div id="about-bio">
+              <p class="about-text">Loading…</p>
+            </div>
             <div class="about-buttons">
-              <a
-                href="#"
-                download
-                class="btn btn-primary"
-                >Download CV</a
-              >
+              <a href="#" download class="btn btn-primary">Download CV</a>
               <a href="/contact" class="btn btn-secondary">Hire Me</a>
             </div>
           </div>
@@ -101,87 +58,13 @@
       </div>
     </section>
 
+    <!-- Skills — populated dynamically -->
     <section id="skills" class="section skills">
       <div class="container">
         <h2 class="section-title">My Skills</h2>
-        <div class="skills-container">
-          <div class="skills-category">
-            <h3 class="skills-category-title">Technical Skills</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">HTML5 & CSS3</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">React</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Vue.js</span>
-                <span class="skill-percent">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skills-category">
-            <h3 class="skills-category-title">Professional Skills</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">UI/UX Design</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Communication</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Problem Solving</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Teamwork</span>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 88%"></div>
-              </div>
-            </div>
+        <div class="skills-container" id="skills-container">
+          <div class="skills-category visible" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:’Orbitron’,sans-serif;font-size:0.75rem;letter-spacing:0.12em">
+            <i class="fas fa-circle-notch fa-spin"></i> Loading skills…
           </div>
         </div>
       </div>
@@ -204,5 +87,8 @@
     </a>
 
     <script src="/script.js"></script>
+    <script src="/page-data.js"></script>
+    <script src="/robot-bg.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', initAboutPage);</script>
   </body>
 </html>

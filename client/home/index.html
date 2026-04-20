@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
     <title>Tobbi | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,6 +15,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <canvas id="robot-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container container">
@@ -38,14 +42,14 @@
     <section id="home" class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Hi, I'm Tobbi</h1>
-        <h2 class="hero-subtitle">Full-Stack Developer</h2>
+        <h2 class="hero-subtitle"><span id="typing-text"></span><span class="cursor">|</span></h2>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-outline">View My Work</a>
           <a href="#contact" class="btn btn-primary">Contact Me</a>
         </div>
         <div class="floating-arrow">
           <a href="#whoiam">
-            <i class="fas fa-chevron-down fa-2x"></i>
+            <i class="fas fa-chevron-down"></i>
           </a>
         </div>
       </div>
@@ -95,188 +99,25 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section — populated dynamically from API -->
     <section id="skills" class="section skills">
       <div class="container">
         <h2 class="section-title">My Skills</h2>
-        <div class="skills-container">
-          <div class="skills-category">
-            <h3 class="skills-category-title">Technical Skills</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">HTML5 & CSS3</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">React & Vite</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Express-Node.js</span>
-                <span class="skill-percent">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="skills-category">
-            <h3 class="skills-category-title">Professional Skills</h3>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">UI/UX Design</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Communication</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Problem Solving</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Teamwork</span>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 88%"></div>
-              </div>
-            </div>
+        <div class="skills-container" id="skills-container">
+          <div class="skills-category visible" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:'Orbitron',sans-serif;font-size:0.75rem;letter-spacing:0.12em">
+            <i class="fas fa-circle-notch fa-spin"></i> Loading skills…
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Featured Projects — populated dynamically from API -->
     <section id="projects" class="section">
       <div class="container">
         <h2 class="section-title">My Projects</h2>
-        <div class="projects-container">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <div class="project-img-container">
-              <img
-                src="/assets/pic/prj-pics/studentPort.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">A Student Management System</h3>
-              <p class="project-description">
-                A lightweight, responsive web app for managing student profiles,
-                courses, and admin tasks.
-              </p>
-              <div class="project-tags">
-                <span class="tag tag-blue">Html5 & CSS3</span>
-                <span class="tag tag-purple">Express with Node.js</span>
-                <span class="tag tag-green">MongoDB</span>
-
-              </div>
-              <a
-                href="https://github.com/Tobbi49ja/Student-Portal.git"
-                target="_blank"
-                class="project-link"
-                >View Repo <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <div class="project-img-container">
-              <img
-                src="/assets/pic/prj-pics/movie.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">A Functional Movie Hub</h3>
-              <p class="project-description">
-                An interactive movie platform for streaming free movies,
-                currently under active development and improvement.
-              </p>
-              <div class="project-tags">
-                <span class="tag tag-blue">React Native & Vite</span>
-                <span class="tag tag-yellow">Express</span>
-                <span class="tag tag-red">Node.js</span>
-              </div>
-              <a
-                href="https://github.com/Tobbi49ja/Tobbihub-Movie.git"
-                target="_blank"
-                class="project-link"
-                >View Repo <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card">
-            <div class="project-img-container">
-              <img
-                src="/assets/pic/prj-pics/logistic-comp.PNG"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">A Logistic Webpage</h3>
-              <p class="project-description">
-                A logistics platform enabling customers to seamlessly track
-                shipments and monitor delivery status online.
-              </p>
-              <div class="project-tags">
-                <span class="tag tag-blue">React Native</span>
-                <span class="tag tag-green">MongoDB</span>
-                <span class="tag tag-indigo">node.js</span>
-              </div>
-              <a
-                href="https://github.com/Tobbi49ja/logistic-webpage-PresageExpress.git"
-                target="_blank"
-                class="project-link"
-                >View Repo <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
+        <div class="projects-container" id="featured-projects-container"></div>
         <div class="projects-more">
-          <a href="/projects" class="btn btn-primary">View All Projects</a>
+          <a href="/projects" class="btn btn-primary visible">View All Projects</a>
         </div>
       </div>
     </section>
@@ -442,5 +283,8 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="/page-data.js"></script>
+    <script src="/robot-bg.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', initHomePage);</script>
   </body>
 </html>

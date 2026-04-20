@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Tobbi Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+
+<!-- ── LOGIN ─────────────────────────────────────────────────────────────── -->
+<div id="login-screen" class="login-screen">
+  <canvas id="robot-canvas"></canvas>
+  <div class="login-card">
+    <div class="login-logo">TOBBI<span>ADMIN</span></div>
+    <p class="login-subtitle">// System Access Required</p>
+    <form id="login-form">
+      <div class="field-group">
+        <label>Admin Password</label>
+        <input type="password" id="login-pass" placeholder="Enter password" required autocomplete="current-password" />
+      </div>
+      <button type="submit" class="btn-cyber" id="login-btn">
+        <i class="fas fa-unlock-alt"></i> Access System
+      </button>
+      <p id="login-error" class="error-msg hidden"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ── APP ───────────────────────────────────────────────────────────────── -->
+<div id="app" class="app hidden">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">TOBBI<span>ADMIN</span></div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-section="projects">
+        <i class="fas fa-folder-open"></i> Projects
+      </a>
+      <a href="#" class="nav-item" data-section="skills">
+        <i class="fas fa-microchip"></i> Skills
+      </a>
+      <a href="#" class="nav-item" data-section="content">
+        <i class="fas fa-sliders-h"></i> Site Content
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="/" target="_blank" class="view-site-btn">
+        <i class="fas fa-external-link-alt"></i> View Site
+      </a>
+      <button class="logout-btn" id="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <header class="top-bar">
+      <h1 id="section-heading">Projects</h1>
+      <div class="top-bar-actions">
+        <button class="btn-cyber" id="add-btn"><i class="fas fa-plus"></i> Add New</button>
+      </div>
+    </header>
+
+    <!-- Projects section -->
+    <div id="section-projects" class="section-panel active">
+      <div id="projects-table-wrap" class="table-wrap">
+        <div class="loading-state"><i class="fas fa-circle-notch fa-spin"></i> Loading projects…</div>
+      </div>
+    </div>
+
+    <!-- Skills section -->
+    <div id="section-skills" class="section-panel">
+      <div id="skills-grid-wrap" class="skills-admin-grid">
+        <div class="loading-state"><i class="fas fa-circle-notch fa-spin"></i> Loading skills…</div>
+      </div>
+    </div>
+
+    <!-- Site Content section -->
+    <div id="section-content" class="section-panel">
+      <div id="content-panels-wrap">
+        <div class="loading-state"><i class="fas fa-circle-notch fa-spin"></i> Loading content…</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ── MODAL ──────────────────────────────────────────────────────────────── -->
+<div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────────────────────────────────── -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="/robot-bg.js"></script>
+<script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/error.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
-    <title>Tobbi-error</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | Tobbi</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/error.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <h2>Oops! Page Not Found</h2>
-        <p>The page you're looking for doesn't exist or has been moved. Don't worry, you can find your way back home.</p>
-        <a href="/" class="btn">Go Back Home</a>
+  <canvas id="error-canvas"></canvas>
+
+  <div class="error-wrap">
+    <div class="glitch-box">
+      <div class="code-label">ERROR_CODE</div>
+      <h1 class="glitch" data-text="404">404</h1>
+      <div class="scan-line"></div>
     </div>
 
-<script src="/error.js"></script>
+    <h2 class="error-title">PAGE_NOT_FOUND</h2>
+    <p class="error-msg">
+      The resource you requested does not exist or has been relocated.<br />
+      Returning to base coordinates is recommended.
+    </p>
+
+    <div class="error-actions">
+      <a href="/" class="err-btn err-btn-primary">
+        <span class="btn-icon">&#8617;</span> Return Home
+      </a>
+      <a href="/projects" class="err-btn err-btn-outline">
+        View Projects
+      </a>
+    </div>
+
+    <div class="status-bar">
+      <span class="status-dot"></span>
+      <span class="status-text">SYSTEM ONLINE — NAVIGATION MODULE ACTIVE</span>
+    </div>
+  </div>
+
+  <script src="/error.js"></script>
 </body>
 </html>
