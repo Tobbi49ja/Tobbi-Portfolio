@@ -6,6 +6,5 @@ const siteContentSchema = new mongoose.Schema({
   type:  { type: String, enum: ['text', 'image', 'json'], default: 'text' },
 });
 
-siteContentSchema.index({ key: 1 });
 
 module.exports = mongoose.models.SiteContent || mongoose.model('SiteContent', siteContentSchema);

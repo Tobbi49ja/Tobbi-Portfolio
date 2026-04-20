@@ -13,12 +13,21 @@ const loginLimiter = rateLimit({
 });
 
 router.post('/login', loginLimiter, (req, res) => {
-  const { password } = req.body;
-  if (!password || password !== process.env.ADMIN_PASSWORD) {
-    return res.status(401).json({ error: 'Invalid password' });
+  try {
+    const { password } = req.body;
+    if (!password || password !== process.env.ADMIN_PASSWORD) {
+      return res.status(401).json({ error: 'Invalid password' });
+    }
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET environment variable is not set');
+      return res.status(500).json({ error: 'Server misconfiguration. Contact the administrator.' });
+    }
+    const token = jwt.sign({ admin: true }, process.env.JWT_SECRET, { expiresIn: '8h' });
+    res.json({ token });
+  } catch (e) {
+    console.error('Login error:', e.message);
+    res.status(500).json({ error: 'Login failed. Please try again.' });
   }
-  const token = jwt.sign({ admin: true }, process.env.JWT_SECRET, { expiresIn: '8h' });
-  res.json({ token });
 });
 
 router.get('/verify', auth, (_req, res) => res.json({ ok: true }));
