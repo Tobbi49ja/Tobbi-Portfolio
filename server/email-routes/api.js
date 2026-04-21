@@ -157,12 +157,17 @@ router.post('/contact', contactLimiter, async (req, res) => {
     html,
   };
 
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('Email env vars missing: EMAIL_USER or EMAIL_PASS not set');
+    return res.status(500).json({ error: 'Email service not configured. Please contact me directly.' });
+  }
+
   try {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: 'Message sent successfully' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ error: 'Failed to send message. Please try again later.' });
+    console.error('Email send error:', error.message);
+    res.status(500).json({ error: 'Failed to send message. Please try again or contact me directly.' });
   }
 });
 
