@@ -34,9 +34,17 @@
 <!-- ── APP ───────────────────────────────────────────────────────────────── -->
 <div id="app" class="app hidden">
 
+  <!-- Sidebar drawer overlay (mobile) -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
   <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">TOBBI<span>ADMIN</span></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">TOBBI<span>ADMIN</span></div>
+      <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     <nav class="sidebar-nav">
       <a href="#" class="nav-item active" data-section="projects">
         <i class="fas fa-folder-open"></i> Projects
@@ -61,9 +69,14 @@
   <!-- Main content -->
   <main class="main-content">
     <header class="top-bar">
-      <h1 id="section-heading">Projects</h1>
+      <div class="top-bar-left">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1 id="section-heading">Projects</h1>
+      </div>
       <div class="top-bar-actions">
-        <button class="btn-cyber" id="add-btn"><i class="fas fa-plus"></i> Add New</button>
+        <button class="btn-cyber" id="add-btn"><i class="fas fa-plus"></i> <span id="add-btn-label">Add New</span></button>
       </div>
     </header>
 

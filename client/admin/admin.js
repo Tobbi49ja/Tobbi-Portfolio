@@ -105,7 +105,10 @@ function showSection(name) {
 
   const addBtn = $id('add-btn');
   if (name === 'content') { addBtn.classList.add('hidden'); }
-  else { addBtn.classList.remove('hidden'); addBtn.innerHTML = `<i class="fas fa-plus"></i> Add ${name === 'projects' ? 'Project' : 'Skill'}`; }
+  else {
+    addBtn.classList.remove('hidden');
+    addBtn.innerHTML = `<i class="fas fa-plus"></i> <span id="add-btn-label">Add ${name === 'projects' ? 'Project' : 'Skill'}</span>`;
+  }
 
   loadSection(name);
 }
@@ -521,6 +524,19 @@ function esc(str) {
   return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// ── Sidebar drawer (mobile) ───────────────────────────────────────────────────
+function openSidebar() {
+  $id('sidebar').classList.add('open');
+  $id('sidebar-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSidebar() {
+  $id('sidebar').classList.remove('open');
+  $id('sidebar-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 // ── Event wiring ──────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   // Login
@@ -544,9 +560,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Logout
   $id('logout-btn').addEventListener('click', logout);
 
-  // Nav
+  // Hamburger / drawer
+  $id('hamburger-btn').addEventListener('click', openSidebar);
+  $id('sidebar-close-btn').addEventListener('click', closeSidebar);
+  $id('sidebar-overlay').addEventListener('click', closeSidebar);
+
+  // Nav — close drawer on mobile after selecting a section
   document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', (e) => { e.preventDefault(); showSection(item.dataset.section); });
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection(item.dataset.section);
+      if (window.innerWidth <= 768) closeSidebar();
+    });
   });
 
   // Add new button
