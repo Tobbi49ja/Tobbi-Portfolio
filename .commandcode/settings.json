@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "powershell"
+      "powershell",
+      "Shell(node C:\\Users\\TOBBI\\AppData\\Local\\Temp\\commandcode\\C--Users-TOBBI-Documents-MyWork-Git-Repos-Tobbi-Portfolio\\74272997-ce83-4cdf-ab5b-065073cd9c9e\\scratchpad\\harness3_counter.js 2 >& 1)"
     ],
     "deny": [],
     "defaultMode": "default"

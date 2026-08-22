@@ -37,6 +37,7 @@ const content = [
   { key:'about.paragraph2',     value:"My approach blends technical precision with a keen sense of design, delivering projects that perform seamlessly and delight users with exceptional experiences.", type:'text' },
   { key:'about.paragraph3',     value:"Beyond the screen, I unwind and recharge through my love for gaming, watching movies, and hanging out with friends. Whether I'm exploring new digital worlds, catching the latest films, or enjoying a fun outing, I believe in balancing hard work with genuine enjoyment and creativity.", type:'text' },
   { key:'profile.picture',      value:'/assets/pic/profile/Profile.jpg',                        type:'image' },
+  { key:'experience.startDate', value:'',                                                        type:'text' },
   { key:'contact.email',        value:'tolusamuel040@gmail.com',                                type:'text' },
   { key:'contact.phone',        value:'+234 8120 3844 79',                                      type:'text' },
   { key:'contact.location',     value:'Bwari Abuja Nigeria',                                    type:'text' },

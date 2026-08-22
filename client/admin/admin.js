@@ -477,6 +477,14 @@ function renderContentPanels() {
         </button>
       </div>`).join('')}
       <div class="content-field">
+        <label>Career Start Date</label>
+        <input type="date" id="c-exp-start" value="${esc(allContent['experience.startDate']||'')}" />
+        <button class="btn-cyber" style="margin-top:8px" onclick="saveContent('experience.startDate', $id('c-exp-start').value)">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <p class="upload-status" style="font-size:0.75rem;color:var(--muted)">The "with X years/months/days" counter on Home and About auto-counts from this date and updates daily. Use YYYY-MM-DD (leave empty to show 0).</p>
+      </div>
+      <div class="content-field">
         <label>Profile Picture</label>
         <div class="img-preview-wrap">
           <img id="profile-pic-preview" src="${allContent['profile.picture']||'/assets/pic/profile/Profile.jpg'}" alt="Profile" />

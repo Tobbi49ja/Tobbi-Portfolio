@@ -161,6 +161,9 @@ async function initAboutPage() {
       fetch('/api/skills'),
     ]);
 
+    // Ensure the experience counter's start date is loaded before rendering.
+    await loadExperienceStartDate();
+
     const content = contentRes.ok ? await contentRes.json() : {};
     const skills  = skillsRes.ok  ? await skillsRes.json()  : [];
 
@@ -240,16 +243,5 @@ function makeVisible(container) {
       card.classList.add('visible');
       card.querySelectorAll('.project-title,.project-description,.tag,.project-link').forEach(el => el.classList.add('visible'));
     }, i * 60);
-  });
-}
-
-/* Initialize static experience-counter placeholders
-   (e.g. the hardcoded "with 8 months" text on home pages).
-   A dedicated `<span data-experience-counter>` is filled with the live
-   `<number> <unit-select>` markup, then wired up. */
-function initStaticExperienceCounters() {
-  document.querySelectorAll('[data-experience-counter]').forEach(el => {
-    el.innerHTML = experienceCounterHTML(experienceCurrentUnit());
-    initExperienceCounter(el);
   });
 }
