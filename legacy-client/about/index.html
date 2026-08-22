@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
     <title>Tobbi - About</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="icon" type="image/png" href="assets/favicon/Favicon.ico" />
   </head>
   <body>
-    <canvas id="robot-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container container">
@@ -39,20 +36,30 @@
         </div>
       </div>
     </nav>
+
     <section id="home" class="section about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <div class="about-container">
           <div class="about-img-container">
-            <img src="/assets/pic/profile/Profile.jpg" alt="Tobbi" class="about-img" id="profile-image" />
+            <img
+              src="/assets/pic/profile/Profile.jpg"
+              alt="Tobbi"
+              class="about-img"
+            />
           </div>
           <div class="about-content">
             <h3 class="about-title">Who am I?</h3>
             <div id="about-bio">
-              <p class="about-text">Loading…</p>
+              <p class="about-text visible">Loading…</p>
             </div>
             <div class="about-buttons">
-              <a href="#" download class="btn btn-primary">Download CV</a>
+              <a
+                href="#"
+                download
+                class="btn btn-primary"
+                >Download CV</a
+              >
               <a href="/contact" class="btn btn-secondary">Hire Me</a>
             </div>
           </div>
@@ -60,12 +67,11 @@
       </div>
     </section>
 
-    <!-- Skills — populated dynamically -->
     <section id="skills" class="section skills">
       <div class="container">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-container" id="skills-container">
-          <div class="skills-category visible" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:’Orbitron’,sans-serif;font-size:0.75rem;letter-spacing:0.12em">
+          <div class="skills-category" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:inherit;font-size:0.85rem">
             <i class="fas fa-circle-notch fa-spin"></i> Loading skills…
           </div>
         </div>
@@ -80,7 +86,7 @@
           <a href="#home" class="footer-link active">About</a>
           <a href="/projects" class="footer-link">Projects</a>
         </div>
-        <p class="footer-copyright">© 2026 Tobbi. All rights reserved.</p>
+        <p class="footer-copyright">© 2025 Tobbi. All rights reserved.</p>
       </div>
     </footer>
 

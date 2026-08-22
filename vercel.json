@@ -2,11 +2,21 @@
   "version": 2,
   "builds": [
     { "src": "server/server.js", "use": "@vercel/node" },
-    { "src": "client/**/*", "use": "@vercel/static" }
+    { "src": "client/**/*", "use": "@vercel/static" },
+    { "src": "legacy-client/**/*", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server/server.js" },
-    { "src": "/(.*)", "dest": "client/$1" }
-  ],
-  "outputDirectory": "client"
+
+    { "src": "/assets/(.*)", "dest": "client/assets/$1" },
+    { "src": "/admin(.*)", "dest": "server/server.js" },
+    { "src": "/legacy/(.*)", "dest": "legacy-client/$1" },
+
+    { "src": "/(styles.css|script.js|page-data.js|experience-counter.js|robot-bg.js|projects-data.js|error.css|error.js)", "dest": "server/server.js" },
+
+    { "src": "/(|about|projects|contact|cv|preview-index.html)", "dest": "server/server.js" },
+    { "src": "/preview", "dest": "server/server.js" },
+
+    { "src": "/(.*)", "dest": "server/server.js" }
+  ]
 }

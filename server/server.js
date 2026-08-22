@@ -43,7 +43,47 @@ app.use(globalLimiter);
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(mongoSanitize());
-app.use(express.static(path.join(__dirname, '../client')));
+
+// ── Theme (light/dark) routing ─────────────────────────────────────────────
+// OLD portfolio = light (default). NEW portfolio = dark.
+// A single `portfolioTheme` cookie drives which static tree each request reads.
+const ROOTS = {
+  light: 'legacy-client', // OLD portfolio (default)
+  dark:  'client',        // NEW portfolio
+};
+const DEFAULT_THEME = 'light';
+
+// Files that differ between the two portfolio trees (assets are shared/identical).
+const THEME_STATIC = [
+  'styles.css', 'script.js', 'page-data.js', 'experience-counter.js', 'robot-bg.js',
+  'projects-data.js', 'error.css', 'error.js',
+];
+
+function themeFromRequest(req) {
+  const cookie = (req.headers.cookie || '').split(';')
+    .map(c => c.trim())
+    .find(c => c.startsWith('portfolioTheme='));
+  const value = cookie ? cookie.split('=')[1] : null;
+  return value === 'dark' || value === 'light' ? value : DEFAULT_THEME;
+}
+
+function themePath(theme, relative) {
+  return path.join(__dirname, `../${ROOTS[theme]}`, relative);
+}
+
+// Shared assets + admin panel (identical in both trees), served from the NEW tree.
+app.use('/assets', express.static(path.join(__dirname, '../client/assets')));
+app.use('/admin',  express.static(path.join(__dirname, '../client/admin')));
+
+// Theme-specific static files served from the matching tree (by cookie).
+app.use((req, res, next) => {
+  const name = req.path.replace(/^\//, '');
+  if (THEME_STATIC.includes(name)) {
+    const theme = themeFromRequest(req);
+    return res.sendFile(themePath(theme, name));
+  }
+  return next();
+});
 
 // ── API routes ──────────────────────────────────────────────────────────────
 app.use('/api/admin',         require('./admin-routes/auth'));
@@ -53,19 +93,20 @@ app.use('/api/skills',        require('./admin-routes/skills'));
 app.use('/api/content',       require('./admin-routes/content'));
 app.use('/api',               require('./email-routes/api'));
 
-// ── Page routes ─────────────────────────────────────────────────────────────
-const page = (name) => path.join(__dirname, `../client/${name}/index.html`);
+// ── Page routes (theme-aware) ───────────────────────────────────────────────
+const page = (req, name) => themePath(themeFromRequest(req), `${name}/index.html`);
 
-app.get('/',            (_req, res) => res.sendFile(page('home')));
-app.get('/about',       (_req, res) => res.sendFile(page('about')));
-app.get('/projects',    (_req, res) => res.sendFile(page('projects')));
-app.get('/contact',     (_req, res) => res.sendFile(page('contact')));
-app.get('/cv',          (_req, res) => res.sendFile(page('cv')));
-app.get('/admin',       (_req, res) => res.sendFile(page('admin')));
-app.get('/preview-index.html', (_req, res) => res.sendFile(page('preview')));
+app.get('/',            (req, res) => res.sendFile(page(req, 'home')));
+app.get('/about',       (req, res) => res.sendFile(page(req, 'about')));
+app.get('/projects',    (req, res) => res.sendFile(page(req, 'projects')));
+app.get('/contact',     (req, res) => res.sendFile(page(req, 'contact')));
+app.get('/cv',          (req, res) => res.sendFile(page(req, 'cv')));
+app.get('/admin',       (_req, res) => res.sendFile(path.join(__dirname, '../client/admin/index.html')));
+app.get('/preview-index.html', (req, res) => res.sendFile(page(req, 'preview')));
+app.get('/preview',     (req, res) => res.sendFile(page(req, 'preview')));
 
-// ── 404 ─────────────────────────────────────────────────────────────────────
-app.use((_req, res) => res.status(404).sendFile(path.join(__dirname, '../client/error/index.html')));
+// ── 404 (theme-aware) ───────────────────────────────────────────────────────
+app.use((req, res) => res.status(404).sendFile(themePath(themeFromRequest(req), 'error/index.html')));
 
 // ── Global error handler ─────────────────────────────────────────────────────
 app.use((err, _req, res, _next) => {

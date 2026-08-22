@@ -12,6 +12,7 @@ const projectSchema = new mongoose.Schema({
   repoUrl:          { type: String, default: '#' },
   liveDemoUrl:      String,
   featured:         { type: Boolean, default: false },
+  type:             { type: String, enum: ['personal', 'client'], default: 'personal' },
   order:            { type: Number, default: 0 },
 }, { timestamps: true });
 

@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
     <title>Tobbi | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -15,7 +12,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <canvas id="robot-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container container">
@@ -44,14 +40,14 @@
     <section id="home" class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Hi, I'm Tobbi</h1>
-        <h2 class="hero-subtitle"><span id="typing-text"></span><span class="cursor">|</span></h2>
+        <h2 class="hero-subtitle">Full-Stack Developer</h2>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-outline">View My Work</a>
           <a href="#contact" class="btn btn-primary">Contact Me</a>
         </div>
         <div class="floating-arrow">
           <a href="#whoiam">
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down fa-2x"></i>
           </a>
         </div>
       </div>
@@ -101,25 +97,25 @@
       </div>
     </section>
 
-    <!-- Skills Section — populated dynamically from API -->
+    <!-- Skills Section -->
     <section id="skills" class="section skills">
       <div class="container">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-container" id="skills-container">
-          <div class="skills-category visible" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:'Orbitron',sans-serif;font-size:0.75rem;letter-spacing:0.12em">
+          <div class="skills-category" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:inherit;font-size:0.85rem">
             <i class="fas fa-circle-notch fa-spin"></i> Loading skills…
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects — populated dynamically from API -->
+    <!-- Projects Section -->
     <section id="projects" class="section">
       <div class="container">
         <h2 class="section-title">My Projects</h2>
         <div class="projects-container" id="featured-projects-container"></div>
         <div class="projects-more">
-          <a href="/projects" class="btn btn-primary visible">View All Projects</a>
+          <a href="/projects" class="btn btn-primary">View All Projects</a>
         </div>
       </div>
     </section>
@@ -275,7 +271,7 @@
           <a href="#projects" class="footer-link">Projects</a>
           <a href="#contact" class="footer-link">Contact</a>
         </div>
-        <p class="footer-copyright">&copy; 2026 Tobbi. All rights reserved.</p>
+        <p class="footer-copyright">&copy; 2025 Tobbi. All rights reserved.</p>
       </div>
     </footer>
 

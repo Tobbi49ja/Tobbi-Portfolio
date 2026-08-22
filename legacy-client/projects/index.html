@@ -3,19 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tobbi - Projects</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon/Favicon.ico" />
-    <title>Tobbi - About</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="icon" type="image/png" href="assets/favicon/Favicon.ico" />
   </head>
   <body>
-    <canvas id="robot-canvas"></canvas>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container container">
@@ -39,48 +36,31 @@
         </div>
       </div>
     </nav>
-    <section id="home" class="section about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-          <div class="about-img-container">
-            <img src="/assets/pic/profile/Profile.jpg" alt="Tobbi" class="about-img" id="profile-image" />
-          </div>
-          <div class="about-content">
-            <h3 class="about-title">Who am I?</h3>
-            <div id="about-bio">
-              <p class="about-text">Loading…</p>
-            </div>
-            <div class="about-buttons">
-              <a href="#" download class="btn btn-primary">Download CV</a>
-              <a href="/contact" class="btn btn-secondary">Hire Me</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Skills — populated dynamically -->
-    <section id="skills" class="section skills">
-      <div class="container">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-container" id="skills-container">
-          <div class="skills-category visible" style="grid-column:1/-1;text-align:center;color:var(--light-text);font-family:’Orbitron’,sans-serif;font-size:0.75rem;letter-spacing:0.12em">
-            <i class="fas fa-circle-notch fa-spin"></i> Loading skills…
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="home" class="section projects">
+  <div class="container">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-section">
+      <h3 class="projects-section-title">Client Projects</h3>
+      <div class="projects-container" id="client-projects-container"></div>
+    </div>
+
+    <div class="projects-section">
+      <h3 class="projects-section-title">Personal Projects</h3>
+      <div class="projects-container" id="personal-projects-container"></div>
+    </div>
+  </div>
+</section>
 
     <footer class="footer">
       <div class="container footer-container">
         <a href="/" class="footer-logo">Tobbi</a>
         <div class="footer-links">
           <a href="/" class="footer-link">Home</a>
-          <a href="#home" class="footer-link active">About</a>
-          <a href="/projects" class="footer-link">Projects</a>
+          <a href="/about" class="footer-link">About</a>
+          <a href="#home" class="footer-link active">Projects</a>
         </div>
-        <p class="footer-copyright">© 2026 Tobbi. All rights reserved.</p>
+        <p class="footer-copyright">© 2025 Tobbi. All rights reserved.</p>
       </div>
     </footer>
 
@@ -90,8 +70,7 @@
 
     <script src="/script.js"></script>
     <script src="/page-data.js"></script>
-    <script src="/experience-counter.js"></script>
     <script src="/robot-bg.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', initAboutPage);</script>
+    <script>initProjectsPage();</script>
   </body>
 </html>

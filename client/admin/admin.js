@@ -141,6 +141,7 @@ function renderProjectsTable() {
         <tr>
           <th>Thumb</th>
           <th>Title</th>
+          <th>Type</th>
           <th>Tags</th>
           <th>Featured</th>
           <th>Order</th>
@@ -152,6 +153,7 @@ function renderProjectsTable() {
           <tr>
             <td><img src="${p.image || ''}" alt="${p.title}" onerror="this.style.display='none'" /></td>
             <td><strong>${p.title}</strong></td>
+            <td><span class="badge ${p.type === 'client' ? 'badge-yes' : 'badge-no'}">${p.type === 'client' ? 'Client' : 'Personal'}</span></td>
             <td style="font-size:0.78rem;color:var(--muted)">${(p.tags||[]).slice(0,3).join(', ')}</td>
             <td><span class="badge ${p.featured ? 'badge-yes' : 'badge-no'}">${p.featured ? 'Yes' : 'No'}</span></td>
             <td style="color:var(--muted)">${p.order}</td>
@@ -220,9 +222,20 @@ function openProjectModal(id) {
         <img id="proj-img-preview" class="img-upload-preview" />
         <p class="upload-status" id="proj-upload-status"></p>
       </div>
-      <div class="checkbox-row">
-        <input type="checkbox" name="featured" id="proj-featured" ${p.featured ? 'checked' : ''} />
-        <label for="proj-featured">Show on home page (Featured)</label>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Project Type</label>
+          <select name="type">
+            <option value="personal" ${(p.type || 'personal') === 'personal' ? 'selected' : ''}>Personal</option>
+            <option value="client"   ${p.type === 'client' ? 'selected' : ''}>Client</option>
+          </select>
+        </div>
+        <div class="field-group" style="display:flex;align-items:flex-end">
+          <div class="checkbox-row" style="margin-bottom:0">
+            <input type="checkbox" name="featured" id="proj-featured" ${p.featured ? 'checked' : ''} />
+            <label for="proj-featured">Show on home page (Featured)</label>
+          </div>
+        </div>
       </div>
     </form>
     <div class="modal-actions">
@@ -258,6 +271,7 @@ async function saveProject(id) {
     liveDemoUrl:      fd.get('liveDemoUrl').trim(),
     tags:             fd.get('tags').split(',').map(t => t.trim()).filter(Boolean),
     featured:         form.querySelector('[name="featured"]').checked,
+    type:             fd.get('type') || 'personal',
     order:            parseInt(fd.get('order')) || 0,
   };
 

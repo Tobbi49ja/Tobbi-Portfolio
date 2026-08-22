@@ -1,19 +1,4 @@
-function showToast(message, type) {
-  const existing = document.querySelector('.toast-notification');
-  if (existing) existing.remove();
-
-  const toast = document.createElement('div');
-  toast.className = 'toast-notification toast-' + (type || 'info');
-  toast.textContent = message;
-  document.body.appendChild(toast);
-
-  requestAnimationFrame(() => toast.classList.add('toast-visible'));
-  setTimeout(() => {
-    toast.classList.remove('toast-visible');
-    setTimeout(() => toast.remove(), 400);
-  }, 4000);
-}
-
+// script.js
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -94,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.forEach(element => observer.observe(element));
 
   // Dynamic project preview page logic
-  if (window.location.pathname.includes('preview')) {
+  if (window.location.pathname.includes('project-preview.html')) {
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = urlParams.get('project');
     const project = projects.find(p => p.id === projectId);
@@ -164,7 +149,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.getBoundingClientRect().top + window.scrollY - 80,
+        top: targetElement.offsetTop - 80,
         behavior: 'smooth'
       });
       window.history.pushState(null, null, targetId);
@@ -213,59 +198,35 @@ const contactForm = document.querySelector('#contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    const submitBtn = contactForm.querySelector('[type="submit"]');
-    const originalText = submitBtn ? submitBtn.textContent : '';
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-    }
-
+    
     const formData = new FormData(contactForm);
-    const name    = String(formData.get('name') || '').trim();
-    const email   = String(formData.get('email') || '').trim();
-    const subject = String(formData.get('subject') || '').trim();
-    const message = String(formData.get('message') || '').trim();
-
-    if (!name || !email || !subject || !message) {
-      showToast('Please fill in all fields.', 'error');
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
-      return;
-    }
-
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRe.test(email)) {
-      showToast('Please enter a valid email address.', 'error');
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
-      return;
-    }
-
-    if (message.length > 5000) {
-      showToast('Message must be under 5000 characters.', 'error');
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
-      return;
-    }
-
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+    
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
-
+      
       const result = await response.json();
-
+      
       if (response.ok) {
-        showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
+        alert('Message sent successfully!');
         contactForm.reset();
       } else {
-        showToast(result.error || 'Failed to send message. Please try again.', 'error');
+        alert(result.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
-      showToast('Network error. Please check your connection and try again.', 'error');
-    } finally {
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+      alert('An error occurred. Please try again later.');
     }
   });
 }
