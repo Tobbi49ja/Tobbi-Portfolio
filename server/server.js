@@ -11,6 +11,16 @@ const seed           = require('./seed');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
 
+const REQUIRED_ENV = ['MONGODB_URI', 'JWT_SECRET', 'ADMIN_PASSWORD'];
+const missing = REQUIRED_ENV.filter(k => !process.env[k]);
+if (missing.length) {
+  console.error('❌ Missing required environment variables:');
+  missing.forEach(k => console.error(`   - ${k}`));
+  console.error('\nSet these in Render Dashboard → Environment → Environment Variables');
+  console.error('See server/.env.example for the full list.\n');
+  process.exit(1);
+}
+
 const app = express();
 
 app.use(helmet({
